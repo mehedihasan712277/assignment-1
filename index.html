@@ -3,50 +3,76 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>SwiftCart</title>
         <link href="./dist/output.css" rel="stylesheet" />
     </head>
-    <body class="font-outfit">
-        <!-- navbar -->
-        <nav>
-            <div class="flex justify-between items-center bg-white py-6 w-full max-w-350 mx-auto">
-                <!-- logo -->
+
+    <body class="font-outfit overflow-x-hidden">
+        <!-- ================= NAVBAR ================= -->
+        <nav class="bg-white border-b">
+            <div class="flex justify-between items-center w-full max-w-350 mx-auto py-6 px-4">
+                <!-- LOGO -->
                 <p class="text-[#4F39F6] font-bold text-2xl">SwiftCart</p>
-                <!-- nav links -->
-                <ul class="flex gap-4 items-center">
-                    <li>
-                        <a href="./index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="./pages/products.html">Products</a>
-                    </li>
-                    <li>
-                        <a href="./pages/about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="./pages/contact.html">Contact</a>
-                    </li>
+
+                <!-- DESKTOP NAV -->
+                <ul class="hidden md:flex gap-6 items-center">
+                    <li><a href="./index.html" class="hover:text-[#4F39F6]">Home</a></li>
+                    <li><a href="./pages/products.html" class="hover:text-[#4F39F6]">Products</a></li>
+                    <li><a href="./pages/about.html" class="hover:text-[#4F39F6]">About</a></li>
+                    <li><a href="./pages/contact.html" class="hover:text-[#4F39F6]">Contact</a></li>
                 </ul>
-                <div>
-                    <!-- cart button -->
+
+                <!-- RIGHT ICONS -->
+                <div class="flex items-center gap-4">
+                    <!-- MENU BUTTON (mobile only) -->
+                    <button id="menuBtn" class="md:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+
+                    <!-- CART -->
                     <button>
                         <img src="./assets/cart.png" alt="cart" class="w-8 h-8" />
                     </button>
                 </div>
             </div>
         </nav>
-        <!-- banner -->
+
+        <!-- ================= MOBILE SIDEBAR ================= -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-black/40 hidden z-40"></div>
+
+        <aside id="sidebar" class="fixed top-0 -right-65 w-64 h-full bg-white shadow-xl z-50 transition-all duration-300">
+            <div class="p-6 flex justify-between items-center border-b">
+                <p class="font-bold text-lg">Menu</p>
+                <button id="closeMenu" class="text-xl">&times;</button>
+            </div>
+
+            <ul class="flex flex-col p-6 gap-4">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./pages/products.html">Products</a></li>
+                <li><a href="./pages/about.html">About</a></li>
+                <li><a href="./pages/contact.html">Contact</a></li>
+            </ul>
+        </aside>
+
+        <!-- ================= BANNER ================= -->
         <div class="relative">
-            <img src="./assets/banner.jpg" alt="banner" class="w-full h-175 object-cover" />
-            <div class="absolute top-0 bottom-0 left-0 right-0 bg-linear-to-r from-blue-950/80 to-black/50 flex items-center">
-                <div class="w-350 mx-auto">
-                    <p class="text-white text-6xl font-extrabold">Best Collection For You</p>
-                    <p class="text-white text-xl mt-4">
+            <img src="./assets/banner.jpg" alt="banner" class="w-full h-125 md:h-175 object-cover" />
+
+            <div class="absolute inset-0 bg-linear-to-r from-blue-950/80 to-black/50 flex items-center">
+                <div class="w-full max-w-350 mx-auto px-4">
+                    <p class="text-white text-3xl md:text-6xl font-extrabold">Best Collection For You</p>
+
+                    <p class="text-white text-base md:text-xl mt-4 max-w-2xl">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam iste iure possimus cumque illum. Magnam.
                     </p>
+
                     <button class="bg-[#4F39F6] text-white px-6 py-3 rounded-lg mt-6">Shop now</button>
                 </div>
             </div>
         </div>
+
+        <script src="./src/script.js"></script>
     </body>
 </html>

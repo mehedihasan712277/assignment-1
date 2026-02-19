@@ -63,7 +63,7 @@ function createProductCard(product) {
 
 // Go To Details Page
 function goToDetails(id) {
-    window.location.href = `./pages/product-details.html?id=${id}`;
+    window.location.href = `./product-details.html?id=${id}`;
 }
 
 // Load Products
